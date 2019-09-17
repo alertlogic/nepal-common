@@ -8,7 +8,7 @@ export class AlTriggeredEvent
 {
 
     public eventTypeName:string;
-    public responses:any[] = [];
+    public responses:number[] = [];
 
     constructor( syntheticName?:string ) {
         this.eventTypeName = syntheticName || this.constructor.name;
@@ -24,7 +24,7 @@ export class AlTriggeredEvent
     /**
      *  Allows hooks to provide feedback/responses to the triggering agent
      */
-    public respond( response:any ) {
+    public respond( response:string ) {
         this.responses.push( response );
     }
 
