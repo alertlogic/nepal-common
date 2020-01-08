@@ -63,6 +63,20 @@ export interface AlCardstackPropertyDescriptor
     metadata:{[property:string]:any};
 }
 
+
+/**
+ *  Describes a filter status
+ */
+export interface AlCardstackStateDescriptor
+{
+    label: string;
+    iconClass : string;
+    icon : string;
+    showTotal : boolean;
+    totalShowing ?: number;
+    total ?: number;
+}
+
 /**
  *  Describes the general characteristics of a given cardstack view.
  */
@@ -73,6 +87,11 @@ export interface AlCardstackCharacteristics
      */
     entity: AlCardstackPropertyDescriptor;
 
+    /**
+     * Top filters like active, inactive, open, closed
+     */
+    stateFilters ?: { value : AlCardstackStateDescriptor }[];
+    selectedState ?: AlCardstackStateDescriptor;
     /**
      *  Identifies a set of properties (referenced by ID) that the cardstack's content can be grouped by.
      *  An empty array indicates that grouping is not supported for this cardstack and the group by selector should not be shown.
