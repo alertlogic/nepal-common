@@ -107,16 +107,16 @@ export class AlLocation
             },
             {
                 locTypeId: locTypeId,
-                environment: 'production-test-env',
+                environment: 'production-staging',
                 residency: 'US',
-                uri: `https://${appCode}-production-test-env-us.ui-dev.product.dev.alertlogic.com`,
+                uri: `https://${appCode}-production-staging-us.ui-dev.product.dev.alertlogic.com`,
                 keyword: appCode
             },
             {
                 locTypeId: locTypeId,
-                environment: 'production-test-env',
+                environment: 'production-staging',
                 residency: 'EMEA',
-                uri: `https://${appCode}-production-test-env-uk.ui-dev.product.dev.alertlogic.com`,
+                uri: `https://${appCode}-production-staging-uk.ui-dev.product.dev.alertlogic.com`,
                 keyword: appCode
             },
             {
