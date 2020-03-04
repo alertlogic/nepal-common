@@ -152,7 +152,7 @@ export interface AlLocationDescriptor
     locTypeId:string;               //  This should correspond to one of the ALLocation string constants, e.g., AlLocation.AccountsUI or AlLocation.GlobalAPI.
     insightLocationId?:string;      //  The location ID as defined by the global locations service -- e.g., 'defender-us-ashburn' or 'insight-eu-ireland'.
     uri:string;                     //  URI of the entity
-    originalUri?:string;             // for after remapping, needed for linking
+    originalUri?:string;            // for after remapping, needed for linking
     residency?:string;              //  A data residency domain
     environment?:string;            //  'production, 'integration', 'development'...
     aliases?:string[];              //  A list of
