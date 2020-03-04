@@ -406,6 +406,7 @@ export class AlLocatorMatrix
     public remapLocationToURI( locTypeId:string, uri:string, environment?:string, residency?:string ) {
         this.nodeCache = {};    //  flush lookup cache
         const remap = ( node:AlLocationDescriptor ) => {
+            node.originalUri = node.uri;
             node.uri = uri;
             node.environment = environment || node.environment;
             node.residency = residency || node.residency;
