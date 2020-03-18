@@ -95,6 +95,7 @@ export interface AlRouteCondition
     entitlements?:string[];                 //  An array of entitlement expressions to evaluate against the acting account's entitlements
     primaryEntitlements?:string[];          //  An array of entitlement expressions to evaluate against the primary account's entitlements
     environments?:string[];                 //  An array of environments to match against (e.g., "integration", "development", "production", etc.
+    excludedEnvironments?:string[];         //  An array of environments to exclude (e.g., "production")
     experiences?:string[];                  //  An array of navigation experiences to match against (e.g., "beta", "default", "delta", "omega-123")
     query?:any;                             //  If provided, the query must be a valid search_lib style filter expression.  This filter will be applied to the current navigation state.
 
