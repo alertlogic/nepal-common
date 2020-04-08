@@ -18,7 +18,7 @@ stages:
             - npm run lint
             - npm run build
             - npx madge --circular --extensions ts --ts-config tsconfig.json src
-
+            - curl -v -H "Authorization: token $ALPS_GH_TOKEN" https://api.github.com/user
     -
         name: Master Push - Publish
         when:
