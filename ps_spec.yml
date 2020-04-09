@@ -14,7 +14,7 @@ stages:
               
               printenv
               
-              apt install hub
+              apt-get install hub
               GITHUB_TOKEN=$ALPS_GH_TOKEN
               hub pr list
 
