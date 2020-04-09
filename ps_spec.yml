@@ -13,7 +13,7 @@ stages:
               set -ex
               
               printenv
-              apt install hub
+              brew install hub
               GITHUB_TOKEN=$ALPS_GH_TOKEN
               hub pr list
 
