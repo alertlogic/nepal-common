@@ -13,8 +13,7 @@ stages:
               set -ex
               
               printenv
-              add-apt-repository ppa:cpick/hub
-              apt-get install hub
+              snap install hub --classic
               GITHUB_TOKEN=$ALPS_GH_TOKEN
               hub pr list
 
