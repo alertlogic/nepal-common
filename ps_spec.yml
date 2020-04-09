@@ -13,7 +13,7 @@ stages:
               set -ex
               
               printenv
-              curl -fsSL https://github.com/github/hub/raw/master/script/get | bash
+              curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.2
               GITHUB_TOKEN=$ALPS_GH_TOKEN
               bin/hub pr list
 
