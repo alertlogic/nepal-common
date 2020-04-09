@@ -13,9 +13,9 @@ stages:
               set -ex
               
               printenv
-              brew install hub
+              curl -fsSL https://github.com/github/hub/raw/master/script/get | bash
               GITHUB_TOKEN=$ALPS_GH_TOKEN
-              hub pr list
+              bin/hub pr list
 
               
             - echo done
