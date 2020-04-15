@@ -6,6 +6,8 @@ stages:
         name: PR Test
         when:
             - pull_request
+            - pull_request:
+                trigger_phrase: test it
         image: node:13
         compute_size: small
         commands:
@@ -18,6 +20,19 @@ stages:
             - npm run lint
             - npm run build
             - npx madge --circular --extensions ts --ts-config tsconfig.json src
+            - |
+              CODEBUILD_SOURCE_VERSION_WARNING="master"
+              if [ "$CODEBUILD_SOURCE_VERSION" = "$CODEBUILD_SOURCE_VERSION_WARNING" ]; then
+                curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.2
+                GITHUB_TOKEN=$ALPS_GH_TOKEN
+                PKGNAME=$(node -e 'console.log(require("./package.json").name)')
+                PKGVERSION=$(node -e 'console.log(require("./package.json").version)')
+                LATEST_VERSION=$(npm show $PKGNAME version)
+                echo "⚠️ **WARNING** - Merging this pull request will result in a publish of **$PKGNAME** to npm from version **$LATEST_VERSION** to **$PKGVERSION**" > comments.txt
+                bin/hub api repos/alertlogic/$ALPS_REPO_NAME/issues/$ALPS_PR_NUMBER/comments --field body=@comments.txt
+              fi
+            
+            - echo done
 
     -
         name: Master Push - Publish
@@ -58,8 +73,6 @@ stages:
               curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.2
               GITHUB_TOKEN=$ALPS_GH_TOKEN
 
-            
-              
               npm install
               
               if [ "$WORDCOUNT" -eq 0  ]; then
