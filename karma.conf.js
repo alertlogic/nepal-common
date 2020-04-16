@@ -29,7 +29,12 @@ module.exports = function (config) {
           "directory": "coverage",
           "subdirectory": "report"
         },
-        "text-summary": ""
+        "text-summary": "",
+        "json-summary": {
+          "directory": "coverage",
+          "subdirectory": "summary",
+          "filename": "json-summary.json"
+        }
       },
       compilerOptions: {
         lib: [
